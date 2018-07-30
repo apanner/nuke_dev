@@ -1,0 +1,52 @@
+set cut_paste_input [stack 0]
+version 10.5 v7
+push $cut_paste_input
+Dot {
+name Dot49
+selected true
+xpos 12356
+ypos 5405
+}
+set N25eaa030 [stack 0]
+Expression {
+channel0 rgb
+expr0 "sqrt(motionFore.x**2 + motionFore.y**2)"
+maskChannelInput -rgba.alpha
+unpremult -rgba.alpha
+name Expression1
+selected true
+xpos 12436
+ypos 5401
+}
+Grade {
+blackpoint 25
+whitepoint 35
+white_clamp true
+maskChannelInput -rgba.alpha
+unpremult -rgba.alpha
+name Grade19
+selected true
+xpos 12436
+ypos 5439
+}
+push $N25eaa030
+add_layer {motionFore motionFore.x motionFore.y motionFore.z motionFore.red motionFore.green motionFore.blue}
+Merge2 {
+inputs 2
+operation multiply
+Bchannels motionFore
+output motionFore
+maskChannelInput -rgba.alpha
+name Multiply
+selected true
+xpos 12322
+ypos 5433
+}
+VectorBlur {
+uv motionFore
+scale {0.5 -0.5}
+name VectorBlur3
+selected true
+xpos 12322
+ypos 5483
+}
