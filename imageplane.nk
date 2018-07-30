@@ -2,7 +2,7 @@ set cut_paste_input [stack 0]
 version 10.5 v7
 push $cut_paste_input
 Group {
-name ImagePlan
+name ImagePlane
 help "This node lets yuo project a texture onto a card to fit the frustum of the connected camera at the reference frame.\n\nThis is useful to either matchmove or stabilise a plate based on a camera rather than 2D tracking data.\n\n"
 knobChanged "\nn = nuke.thisNode()\nk = nuke.thisKnob()\n\nif k.name() == 'use_input':\n    n\['knob'].setEnabled( not k.value() )\n"
 note_font_size 22
